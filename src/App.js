@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import Post from "./Post";
-import { db } from "firebase";
+import  { db,} from "./firebase";
 function App() {
-  const [posts, setPosts] = useState([]);
+  const [Posts, setPosts] = useState([]);
 
   useEffect(() => {
     db.collection("posts").onSnapshot((snapshot) => {
@@ -27,7 +27,7 @@ function App() {
           alt="ErrorImg"
         />
       </div>
-      {posts.map((id, post) => (
+      {Posts.map((id, post) => (
         <Post
           key={id}
           Username={post.Username}
